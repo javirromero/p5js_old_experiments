@@ -60,11 +60,11 @@ function draw() {
   fill(0, 0, 200, random(64));
   ellipse(mouseX, mouseY, localVariable, localVariable);
 
-  /*for (var i = 0; i < 255; i++) {
-    fill(0, i, i);
-    noStroke();
+for (var i = 0; i < 255; i++) {
+    fill('#1affc');
+    stroke('#cc0066');
     ellipse(random(width), random(height), random(100), random(100));
-  }*/
+  }
 
   /* if(mouseIsPressed) {
    background(255,0,0);
