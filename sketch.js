@@ -11,13 +11,12 @@ function setup() {
 
 
 
-  createCanvas(840, 840);
+  createCanvas(windowWidth, windowHeight);
   //background pinta el color del fndo
   //argumento (colores en escala de grises: 0 a 255... de más oscuro a más claro)
   // 3 argumentos: R,G,B
   background('#ff0066')
-
-  frameRate()
+  frameRate(40)
 
 
 }
@@ -31,13 +30,31 @@ function draw() {
   fill(random(0), random(98), 76);
   //sintaxis: ellipse(posX, posY,width,height)
   triangle(500, 400, 50, 50);
+
+ //ellipse2
+  stroke('#ffff97'); // hola esto 
+  strokeWeight(4);
+  fill(random(0), random(98), 76);
+  //sintaxis: ellipse(posX, posY,width,height)
+  ellipse(50, 40, 50, 50);
   
+  //rect1
+  stroke('fffff8');
+  strokeWeight(65);
+  fill('#cc00cc');
+  rect(50,50);
+
   //drawMode de la triangle2
   //triangle2
   stroke(400, 98, 76);
   strokeWeight(random(60));
   fill('#99ffcc');
   triangle(width / 2, width / 2, centerWidth, centerWidth);
+
+  stroke('#1affc6');
+  strokeWeight(70);
+  noFill();
+  vertex(random(80), 80, 80, 18);
 
   var localVariable = 40;
   fill(0, 0, 200, random(64));
@@ -57,11 +74,11 @@ function draw() {
 }
 
 //contador de clicks
-var clicks =0;
+var clicks = 0;
 
 function mousePressed() {
   console.log("NUNUT");
   console.log(clicks);
-  clicks=clicks+1;
+  clicks = clicks + 1;
   //clicks
 }
