@@ -1,6 +1,7 @@
 //width of my center ellipse
 var centerWidth = 100
-
+  //esta es una variable para crear un oscilador
+var osc;
 //scope: alcance
 
 function setup() {
@@ -16,13 +17,34 @@ function setup() {
   //argumento (colores en escala de grises: 0 a 255... de más oscuro a más claro)
   // 3 argumentos: R,G,B
   background('#ff0066')
-  frameRate(40)
+  frameRate(40);
+  
+  setupOsc();
 
 
 }
 
 
 function draw() {
+  
+   drawStuff();
+   
+   updateOsc();
+}
+
+//contador de clicks
+var clicks = 0;
+
+function mousePressed() {
+  console.log("NUNUT");
+  console.log(clicks);
+  clicks = clicks + 1;
+  //clicks
+}
+
+var localVariable = 40;
+
+function drawStuff() {
   //drawMode de la triangle1
   //ellipse1
   stroke('#ffff99'); // hola esto 
@@ -31,18 +53,18 @@ function draw() {
   //sintaxis: ellipse(posX, posY,width,height)
   triangle(500, 400, 50, 50);
 
- //ellipse2
+  //ellipse2
   stroke('#ffff97'); // hola esto 
   strokeWeight(4);
   fill(random(0), random(98), 76);
   //sintaxis: ellipse(posX, posY,width,height)
   ellipse(50, 40, 50, 50);
-  
+
   //rect1
   stroke('fffff8');
   strokeWeight(65);
   fill('#cc00cc');
-  rect(50,50);
+  rect(50, 50);
 
   //drawMode de la triangle2
   //triangle2
@@ -56,11 +78,11 @@ function draw() {
   noFill();
   vertex(random(80), 80, 80, 18);
 
-  var localVariable = 40;
+  //var localVariable = 40;
   fill(0, 0, 200, random(64));
   ellipse(mouseX, mouseY, localVariable, localVariable);
 
-for (var i = 0; i < 255; i++) {
+  for (var i = 0; i < 255; i++) {
     fill('#1affc');
     stroke('#cc0066');
     ellipse(random(width), random(height), random(100), random(100));
@@ -73,12 +95,14 @@ for (var i = 0; i < 255; i++) {
    }*/
 }
 
-//contador de clicks
-var clicks = 0;
+function setupOsc(){
+  osc = new p5.Oscillator();
+  osc.setType("sine");
+  osc.freq(440);
+  osc.amp(0.7);
+  osc.start();
+}
 
-function mousePressed() {
-  console.log("NUNUT");
-  console.log(clicks);
-  clicks = clicks + 1;
-  //clicks
+function updateOsc() {
+  osc.freq(mouseX);
 }
